@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { TestBed } from '@angular/core/testing';
 import { asyncScheduler, Observable, Observer, of, scheduled, Subscription } from 'rxjs';
 
 import { HttpClientService } from '../../http-client.service';
@@ -11,7 +10,6 @@ describe('HttpClientService', () => {
 
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
     mockClientService = jasmine.createSpyObj('HttpClient', ['get'])
     httpClientService = new HttpClientService(mockClientService);
   });

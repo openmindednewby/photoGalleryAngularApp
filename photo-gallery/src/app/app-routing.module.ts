@@ -2,7 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '**', redirectTo: '/' },
+  {
+    path: '',
+    loadChildren: () => import('./Features/photo-gallery/photo-gallery.module').then(m => m.PhotoGalleryModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./Features/photo-gallery/photo-gallery.module').then(m => m.PhotoGalleryModule)
+  }
 ];
 
 @NgModule({
