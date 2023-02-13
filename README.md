@@ -109,7 +109,18 @@ Must have
 - Emulate real-world API, when getting photos. Loading new photos
   should have a random delay of 200-300ms
 - **DONE** unit tests:
-  - ''
+  - PhotoGalleryComponent
+    - 'PhotoGalleryComponent Dom Test.should create'
+    - 'PhotoGalleryComponent Dom Test.should show loader when scrolling down'
+    - 'PhotoGalleryComponent Dom Test.should load more images when scrolling down'
+    - 'PhotoGalleryComponent Dom Test.should be marked as favorite on click'
+    - 'PhotoGalleryComponent Dom Test.should be unmarked as favorite on click'
+    - 'PhotoGalleryComponent Dom Test.should redirect user to favorites page'
+  - PhotoWidgetComponent
+    - 'PhotoWidgetComponent Class test.should create'
+    - 'PhotoWidgetComponent Class test.should return a blob'
+    - 'PhotoWidgetComponent DOM test.should create'
+    - 'PhotoWidgetComponent DOM test.should render an image'
 
 #### UI: App Header
 
