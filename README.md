@@ -74,12 +74,24 @@ to save photos to your “Favorites” library
 
 Must have
 
-- routing
-- angular material
-- scss
+- **DONE** Create project
+  - ng new photo-gallery --style=scss --routing=true
+- **IN DEV** routing
+  - Created need to add routing for
+    - infinite scrollable list of photos '/'
+    - favorites '/favorites'
+    - single page '/photos/:id'
+    - Add fall back page to random list of images (stretch)
+  - Add lazy loading (stretch)
+- **DONE** angular material (deep purple/amber theme)
+- **DONE** scss
 - angular http client
-- unit tests ?
-- create version file (use semantic versioning)
+- **DONE** create version file (use semantic versioning)
+- unit tests:
+
+| Case No | Description                                 | Expected Result |
+| ------- | ------------------------------------------- | --------------- |
+| 1       | bootstrap module (app component) is defined | true            |
 
 #### UI: Photos random screen with an infinite scrollable list of photos
 
