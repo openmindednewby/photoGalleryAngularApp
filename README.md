@@ -76,22 +76,20 @@ Must have
 
 - **DONE** Create project
   - ng new photo-gallery --style=scss --routing=true
-- **IN DEV** routing
-  - Created need to add routing for
-    - infinite scrollable list of photos '/'
-    - favorites '/favorites'
-    - single page '/photos/:id'
-    - Add fall back page to random list of images (stretch)
+- **DONE** routing
+  - Created app with routing
+  - need to add routing for
+    - Add fall back page redirect root page (random list of images) or to 404 (stretch)
   - Add lazy loading (stretch)
 - **DONE** angular material (deep purple/amber theme)
 - **DONE** scss
 - angular http client
 - **DONE** create version file (use semantic versioning)
-- unit tests:
+- **DONE** unit tests:
 
-| Case No | Description                                 | Expected Result |
-| ------- | ------------------------------------------- | --------------- |
-| 1       | bootstrap module (app component) is defined | true            |
+| Case No | Description                    | Expected Result |
+| ------- | ------------------------------ | --------------- |
+| 1       | should create the appComponent | true            |
 
 #### UI: Photos random screen with an infinite scrollable list of photos
 
