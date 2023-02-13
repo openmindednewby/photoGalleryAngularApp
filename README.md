@@ -74,12 +74,23 @@ to save photos to your “Favorites” library
 
 Must have
 
-- routing
-- angular material
-- scss
-- angular http client
-- unit tests ?
-- create version file (use semantic versioning)
+- **DONE** Create project
+  - ng new photo-gallery --style=scss --routing=true
+- **DONE** routing
+  - Created app with routing
+  - need to add routing for
+    - Add fall back page redirect root page (random list of images) or to 404 (stretch)
+  - Add lazy loading (stretch)
+- **DONE** angular material (deep purple/amber theme)
+- **DONE** scss
+- **DONE** angular http client
+- **DONE** create version file (use semantic versioning)
+- **DONE** unit tests:
+  - 'AppComponent.should create component'
+  - 'HttpClientService.should be created'
+  - 'HttpClientService.methods.getBlob.should be created'
+  - 'HttpClientService.methods.getBlob.should have called get method'
+  - 
 
 #### UI: Photos random screen with an infinite scrollable list of photos
 
