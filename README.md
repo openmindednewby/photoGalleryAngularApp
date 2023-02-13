@@ -7,8 +7,8 @@
     - [UI Mocks](#ui-mocks)
   - [User Story Breakdown](#user-story-breakdown)
     - [Story Priority](#story-priority)
-      - [UI: Create Project (User Portal)](#ui-create-project-user-portal)
-      - [UI: Photos random screen with an infinite scrollable list of photos](#ui-photos-random-screen-with-an-infinite-scrollable-list-of-photos)
+      - [(DONE) UI: Create Project (User Portal)](#done-ui-create-project-user-portal)
+      - [UI: Infinite list of scrollable random photos](#ui-infinite-list-of-scrollable-random-photos)
       - [UI: App Header](#ui-app-header)
       - [UI: Favorites screen](#ui-favorites-screen)
       - [UI: Single photo page view](#ui-single-photo-page-view)
@@ -28,7 +28,7 @@ to save photos to your “Favorites” library
 - Clicking a photo adds it to Favorites.
 - When scrolling, new photos should be loaded. Loader icon should be
   displayed.
-- Use https://picsum.photos/200/300 to get random images (or any other
+- Use https://picsum.photos/200/300 to get random photos (or any other
   resource).
 - Emulate real-world API, when getting photos. Loading new photos
   should have a random delay of 200-300ms
@@ -70,7 +70,7 @@ to save photos to your “Favorites” library
 4. UI: Favorites screen
 5. UI: Single photo page view
 
-#### UI: Create Project (User Portal)
+#### (DONE) UI: Create Project (User Portal)
 
 Must have
 
@@ -79,7 +79,7 @@ Must have
 - **DONE** routing
   - Created app with routing
   - need to add routing for
-    - Add fall back page redirect root page (random list of images) or to 404 (stretch)
+    - Add fall back page redirect root page (random list of photos) or to 404 (stretch)
   - Add lazy loading (stretch)
 - **DONE** angular material (deep purple/amber theme)
 - **DONE** scss
@@ -90,25 +90,26 @@ Must have
   - 'HttpClientService.should be created'
   - 'HttpClientService.methods.getBlob.should be created'
   - 'HttpClientService.methods.getBlob.should have called get method'
-  - 
 
-#### UI: Photos random screen with an infinite scrollable list of photos
+#### UI: Infinite list of scrollable random photos
 
 Must have
 
-- unit tests (to be defined)
-- on load, load images
+- on load, load photos
 - infinite scroll down
   - When scrolling, new photos should be loaded. Loader icon should be displayed.
-- load images from (https://picsum.photos/200/300)
-- implement onPush strategy
+- load photos from (https://picsum.photos/200/300)
+- implement onPush strategy  (stretch)
 - be located at '/' root
+  - Add lazy loading (stretch)
 - http requests are delayed by 250ms
 - Clicking a photo adds it to Favorites. Also add the heart badge here to indicate it
-- Use https://picsum.photos/200/300 to get random images (or any other
+- Use https://picsum.photos/200/300 to get random photos (or any other
   resource).
 - Emulate real-world API, when getting photos. Loading new photos
   should have a random delay of 200-300ms
+- **DONE** unit tests:
+  - ''
 
 #### UI: App Header
 

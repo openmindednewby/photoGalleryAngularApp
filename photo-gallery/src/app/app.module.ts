@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { PhotoGalleryComponent } from './Features/photo-gallery/photo-gallery.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PhotoGalleryComponent
   ],
   imports: [
     BrowserModule,
