@@ -83,13 +83,14 @@ Must have
   - Add lazy loading (stretch)
 - **DONE** angular material (deep purple/amber theme)
 - **DONE** scss
-- angular http client
+- **DONE** angular http client
 - **DONE** create version file (use semantic versioning)
 - **DONE** unit tests:
-
-| Case No | Description                    | Expected Result |
-| ------- | ------------------------------ | --------------- |
-| 1       | should create the appComponent | true            |
+  - 'AppComponent.should create component'
+  - 'HttpClientService.should be created'
+  - 'HttpClientService.methods.getBlob.should be created'
+  - 'HttpClientService.methods.getBlob.should have called get method'
+  - 
 
 #### UI: Photos random screen with an infinite scrollable list of photos
 

@@ -22,14 +22,14 @@ describe('HttpClientService', () => {
     }
   })
 
-  it('should be created - HttpClientService', () => {
+  it('should be created', () => {
     expect(httpClientService).toBeTruthy();
   });
 
   describe('methods', () => {
     describe('getBlob', () => {
 
-      it('should have a method', () => {
+      it('should have method', () => {
         expect(httpClientService.getBlob).toBeDefined();
       });
 
