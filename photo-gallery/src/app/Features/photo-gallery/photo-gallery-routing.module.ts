@@ -13,17 +13,14 @@ const routes: Routes = [
       {
         path: '',
         component: GalleryListViewComponent
-        //,outlet: 'photo-gallery'
       },
       {
         path: 'favorites',
         component: GalleryFavoritesListViewComponent
-        //,outlet: 'photo-gallery'
       },
       {
         path: 'photos/:id',
         component: GalleryViewImageComponent
-        //,outlet: 'photo-gallery'
       }
     ]
   }
