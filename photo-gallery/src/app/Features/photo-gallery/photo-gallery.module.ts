@@ -8,10 +8,12 @@ import { GalleryHeaderComponent } from './components/gallery-header/gallery-head
 import { GalleryListViewComponent } from './components/gallery-list-view/gallery-list-view.component';
 import { GalleryFavoritesListViewComponent } from './components/gallery-favorites-list-view/gallery-favorites-list-view.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { BlobToUrlPipe } from '../pipes/blob-to-url.pipe';
+import { BlobToUrlPipe } from './pipes/blob-to-url.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { GalleryViewImageComponent } from './components/gallery-view-image/gallery-view-image.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { MatButtonModule } from '@angular/material/button';
     GalleryHeaderComponent,
     GalleryListViewComponent,
     GalleryFavoritesListViewComponent,
-    BlobToUrlPipe
+    BlobToUrlPipe,
+    GalleryViewImageComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatProgressSpinnerModule,
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatButtonToggleModule
   ],
   providers: [BlobToUrlPipe]
 })

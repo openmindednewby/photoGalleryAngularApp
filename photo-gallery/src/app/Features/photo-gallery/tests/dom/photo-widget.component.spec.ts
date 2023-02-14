@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { asyncScheduler, scheduled } from 'rxjs';
-import { BlobToUrlPipe } from 'src/app/Features/pipes/blob-to-url.pipe';
+import { BlobToUrlPipe } from 'src/app/Features/photo-gallery/pipes/blob-to-url.pipe';
 
 import { PhotoWidgetComponent } from '../../components/photo-widget/photo-widget.component';
 import { GalleryServiceService } from '../../gallery-service.service';
@@ -25,7 +25,7 @@ describe('PhotoWidgetComponent DOM test', () => {
       providers: [
         { provide: GalleryServiceService, useValue: mockGalleryServiceService }
       ],
-      imports:[
+      imports: [
         MatProgressSpinnerModule,
         MatCardModule,
         MatIconModule,

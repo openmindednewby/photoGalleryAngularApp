@@ -1,4 +1,4 @@
-import { SafeResourceUrlPair } from '../../models/safe-resource-url-pair';
+import { SafeResourceUrlPair } from '../../../models/safe-resource-url-pair';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 

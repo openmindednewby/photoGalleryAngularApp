@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -8,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    loadChildren: () => import('./Features/photo-gallery/photo-gallery.module').then(m => m.PhotoGalleryModule)
+    component: NotFoundComponent
   }
 ];
 

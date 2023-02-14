@@ -1,5 +1,5 @@
 import { DomSanitizer } from '@angular/platform-browser';
-import { BlobToUrlPipe } from '../../../pipes/blob-to-url.pipe';
+import { BlobToUrlPipe } from '../../pipes/blob-to-url.pipe';
 
 describe('BlobToUrlPipe', () => {
   let sanitizer: DomSanitizer;
