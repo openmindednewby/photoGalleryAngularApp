@@ -7,11 +7,11 @@
     - [UI Mocks](#ui-mocks)
   - [User Story Breakdown](#user-story-breakdown)
     - [Story Priority](#story-priority)
-      - [UI: Create Project (User Portal)](#ui-create-project-user-portal)
-      - [UI: Photos random screen with an infinite scrollable list of photos](#ui-photos-random-screen-with-an-infinite-scrollable-list-of-photos)
-      - [UI: App Header](#ui-app-header)
-      - [UI: Favorites screen](#ui-favorites-screen)
-      - [UI: Single photo page view](#ui-single-photo-page-view)
+    - [(DONE) UI: Create Project (User Portal)](#done-ui-create-project-user-portal)
+    - [UI: Infinite list of scrollable random photos](#ui-infinite-list-of-scrollable-random-photos)
+    - [UI: App Header](#ui-app-header)
+    - [UI: Favorites screen](#ui-favorites-screen)
+    - [UI: Single photo page view](#ui-single-photo-page-view)
   - [List of Test Cases (template)](#list-of-test-cases-template)
   - [App Specs](#app-specs)
 
@@ -28,7 +28,7 @@ to save photos to your “Favorites” library
 - Clicking a photo adds it to Favorites.
 - When scrolling, new photos should be loaded. Loader icon should be
   displayed.
-- Use https://picsum.photos/200/300 to get random images (or any other
+- Use https://picsum.photos/200/300 to get random photos (or any other
   resource).
 - Emulate real-world API, when getting photos. Loading new photos
   should have a random delay of 200-300ms
@@ -70,7 +70,7 @@ to save photos to your “Favorites” library
 4. UI: Favorites screen
 5. UI: Single photo page view
 
-#### UI: Create Project (User Portal)
+### (DONE) UI: Create Project (User Portal)
 
 Must have
 
@@ -79,7 +79,7 @@ Must have
 - **DONE** routing
   - Created app with routing
   - need to add routing for
-    - Add fall back page redirect root page (random list of images) or to 404 (stretch)
+    - Add fall back page redirect root page (random list of photos) or to 404 (stretch)
   - Add lazy loading (stretch)
 - **DONE** angular material (deep purple/amber theme)
 - **DONE** scss
@@ -90,27 +90,55 @@ Must have
   - 'HttpClientService.should be created'
   - 'HttpClientService.methods.getBlob.should be created'
   - 'HttpClientService.methods.getBlob.should have called get method'
-  - 
 
-#### UI: Photos random screen with an infinite scrollable list of photos
+### UI: Infinite list of scrollable random photos
 
 Must have
 
-- unit tests (to be defined)
-- on load, load images
+- on load, load photos
 - infinite scroll down
   - When scrolling, new photos should be loaded. Loader icon should be displayed.
-- load images from (https://picsum.photos/200/300)
-- implement onPush strategy
-- be located at '/' root
+- load photos from (https://picsum.photos/200/300)
+- **DONE** implement onPush strategy  (stretch)
+- **DONE** be located at '/' root
+  - Add lazy loading (stretch)
 - http requests are delayed by 250ms
-- Clicking a photo adds it to Favorites. Also add the heart badge here to indicate it
-- Use https://picsum.photos/200/300 to get random images (or any other
+- Clicking a photo adds it to Favorites. 
+  - Favorites need to persist, over refresh! Hence we need to make use of the session storage. Hence we should store the request url not the actual blobs since the session storage is supposed only to store small pieces of information. Also add the heart badge there to indicate its a favorite
+- Use https://picsum.photos/200/300 to get random photos (or any other
   resource).
+- photo widget needs to be the same in favorite page and in random list
 - Emulate real-world API, when getting photos. Loading new photos
   should have a random delay of 200-300ms
+- **DONE** unit tests:
+  - **PhotoGalleryComponent**
+    - 'PhotoGalleryComponent Dom Test.should create'
+    - 'PhotoGalleryComponent Dom Test.should show loader when scrolling down'
+    - 'PhotoGalleryComponent Dom Test.should load more images when scrolling down'
+    - 'PhotoGalleryComponent Dom Test.should be marked as favorite on click'
+    - 'PhotoGalleryComponent Dom Test.should be unmarked as favorite on click'
+    - 'PhotoGalleryComponent Dom Test.should redirect user to favorites page'
+  - **PhotoWidgetComponent**
+    - 'PhotoWidgetComponent Class test.should create'
+    - 'PhotoWidgetComponent Class test.should return a blob'
+    - 'PhotoWidgetComponent DOM test.should create'
+    - 'PhotoWidgetComponent DOM test.should render an image'
+  - **SessionStorageService**
+    - 'SessionStorageService.should be created'
+    - 'SessionStorageService.set.should set a value'
+    - 'SessionStorageService.get.should have retrieved null'
+    - 'SessionStorageService.get.should have retrieved set value'
+    - 'SessionStorageService.removeItem.should have removed key value'
+    - 'SessionStorageService.clear.should have removed all keys'
+    - 'SessionStorageService.getKeys.should retrieve all keys'
+  - **GalleryServiceService**
+    - 'GalleryServiceService.should be created'
+    - 'GalleryServiceService.getRandomImage.should return a random image'
+    - 'GalleryServiceService.getFavoriteImage.should return favorite image from session storage if it exists'
+    - 'GalleryServiceService.setFavoriteImage.should set favorite image to session storage'
+    - 'GalleryServiceService.removeFavoriteImage.should remove session item'
 
-#### UI: App Header
+### UI: App Header
 
 Must have
 
@@ -119,7 +147,7 @@ Must have
 - Consists of 2 buttons and allows you to switch between your “Favorites” library and a random photo stream.
 - An active view must be highlighted
 
-#### UI: Favorites screen
+### UI: Favorites screen
 
 Must have
 
@@ -131,7 +159,7 @@ Must have
 - Favorites list should persist after a page refresh
   - session storage or local storage
 
-#### UI: Single photo page view
+### UI: Single photo page view
 
 Must have
 
@@ -158,3 +186,7 @@ Must have
 7. Think carefully about how to structure your code. Make separate reusable components, modules, etc Test your code
 8. Use async pipe and RxJS do not use subscriptions and promises
 9. Implement Change Detection on Push To improve Performance (stretch)
+10. Add content security policy (stretch)
+11. Make sure scrolling image log work both when we scroll using wheel and key arrow
+12. clear all console logs
+13. add error handling
