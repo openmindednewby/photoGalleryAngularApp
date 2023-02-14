@@ -99,28 +99,38 @@ Must have
 - infinite scroll down
   - When scrolling, new photos should be loaded. Loader icon should be displayed.
 - load photos from (https://picsum.photos/200/300)
-- implement onPush strategy  (stretch)
-- be located at '/' root
+- **DONE** implement onPush strategy  (stretch)
+- **DONE** be located at '/' root
   - Add lazy loading (stretch)
 - http requests are delayed by 250ms
-- Clicking a photo adds it to Favorites. Also add the heart badge here to indicate it
+- Clicking a photo adds it to Favorites. 
+  - Favorites need to persist, over refresh! Hence we need to make use of the session storage. Hence we should store the request url not the actual blobs since the session storage is supposed only to store small pieces of information. Also add the heart badge there to indicate its a favorite
 - Use https://picsum.photos/200/300 to get random photos (or any other
   resource).
+- photo widget needs to be the same in favorite page and in random list
 - Emulate real-world API, when getting photos. Loading new photos
   should have a random delay of 200-300ms
 - **DONE** unit tests:
-  - PhotoGalleryComponent
+  - **PhotoGalleryComponent**
     - 'PhotoGalleryComponent Dom Test.should create'
     - 'PhotoGalleryComponent Dom Test.should show loader when scrolling down'
     - 'PhotoGalleryComponent Dom Test.should load more images when scrolling down'
     - 'PhotoGalleryComponent Dom Test.should be marked as favorite on click'
     - 'PhotoGalleryComponent Dom Test.should be unmarked as favorite on click'
     - 'PhotoGalleryComponent Dom Test.should redirect user to favorites page'
-  - PhotoWidgetComponent
+  - **PhotoWidgetComponent**
     - 'PhotoWidgetComponent Class test.should create'
     - 'PhotoWidgetComponent Class test.should return a blob'
     - 'PhotoWidgetComponent DOM test.should create'
     - 'PhotoWidgetComponent DOM test.should render an image'
+  - **SessionStorageService**
+    - 'SessionStorageService.should be created'
+    - 'SessionStorageService.set.should set a value'
+    - 'SessionStorageService.get.should have retrieved null'
+    - 'SessionStorageService.get.should have retrieved set value'
+    - 'SessionStorageService.removeItem.should have removed key value'
+    - 'SessionStorageService.clear.should have removed all keys'
+    - 'SessionStorageService.getKeys.should retrieve all keys'
 
 #### UI: App Header
 
