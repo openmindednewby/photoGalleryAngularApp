@@ -8,7 +8,7 @@
   - [User Story Breakdown](#user-story-breakdown)
     - [Story Priority](#story-priority)
     - [(DONE) UI: Create Project (User Portal)](#done-ui-create-project-user-portal)
-    - [UI: Infinite list of scrollable random photos](#ui-infinite-list-of-scrollable-random-photos)
+    - [(Completed implementation ONLY pending unit tests) UI: Infinite list of scrollable random photos](#completed-implementation-only-pending-unit-tests-ui-infinite-list-of-scrollable-random-photos)
     - [UI: App Header](#ui-app-header)
     - [UI: Favorites screen](#ui-favorites-screen)
     - [UI: Single photo page view](#ui-single-photo-page-view)
@@ -91,7 +91,7 @@ Must have
   - 'HttpClientService.methods.getBlob.should be created'
   - 'HttpClientService.methods.getBlob.should have called get method'
 
-### UI: Infinite list of scrollable random photos
+### (Completed implementation ONLY pending unit tests) UI: Infinite list of scrollable random photos
 
 Must have
 
@@ -190,3 +190,4 @@ Must have
 11. Make sure scrolling image log work both when we scroll using wheel and key arrow
 12. clear all console logs
 13. add error handling
+14. make headers not re rendered between pages
