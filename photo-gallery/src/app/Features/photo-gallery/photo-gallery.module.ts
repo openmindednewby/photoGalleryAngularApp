@@ -6,6 +6,7 @@ import { PhotoGalleryComponent } from './photo-gallery.component';
 import { PhotoWidgetComponent } from './components/photo-widget/photo-widget.component';
 import { GalleryHeaderComponent } from './components/gallery-header/gallery-header.component';
 import { GalleryListViewComponent } from './components/gallery-list-view/gallery-list-view.component';
+import { GalleryFavoritesListViewComponent } from './components/gallery-favorites-list-view/gallery-favorites-list-view.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { GalleryListViewComponent } from './components/gallery-list-view/gallery
     PhotoGalleryComponent,
     PhotoWidgetComponent,
     GalleryHeaderComponent,
-    GalleryListViewComponent
+    GalleryListViewComponent,
+    GalleryFavoritesListViewComponent
   ],
   imports: [
     CommonModule,
