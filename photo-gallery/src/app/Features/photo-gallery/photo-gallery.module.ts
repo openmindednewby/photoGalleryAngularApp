@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { GalleryViewImageComponent } from './components/gallery-view-image/gallery-view-image.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GalleryViewImageComponent } from './components/gallery-view-image/galle
     MatProgressSpinnerModule,
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatButtonToggleModule
   ],
   providers: [BlobToUrlPipe]
 })
