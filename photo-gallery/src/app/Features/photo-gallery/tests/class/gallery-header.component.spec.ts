@@ -1,5 +1,3 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { GalleryHeaderComponent } from '../../components/gallery-header/gallery-header.component';
 
 describe('GalleryHeaderComponent', () => {

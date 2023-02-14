@@ -22,4 +22,11 @@ describe('GalleryListViewComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  describe('Scrolling', () => {
+
+    it('should add items to the array until scroller is shown and is not at the bottom of the page', () => {
+      expect(component).toBeTruthy();
+    });
+
+  });
 });

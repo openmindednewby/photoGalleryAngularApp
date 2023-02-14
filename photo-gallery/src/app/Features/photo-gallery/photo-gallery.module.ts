@@ -7,7 +7,11 @@ import { PhotoWidgetComponent } from './components/photo-widget/photo-widget.com
 import { GalleryHeaderComponent } from './components/gallery-header/gallery-header.component';
 import { GalleryListViewComponent } from './components/gallery-list-view/gallery-list-view.component';
 import { GalleryFavoritesListViewComponent } from './components/gallery-favorites-list-view/gallery-favorites-list-view.component';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BlobToUrlPipe } from '../pipes/blob-to-url.pipe';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -15,11 +19,17 @@ import { GalleryFavoritesListViewComponent } from './components/gallery-favorite
     PhotoWidgetComponent,
     GalleryHeaderComponent,
     GalleryListViewComponent,
-    GalleryFavoritesListViewComponent
+    GalleryFavoritesListViewComponent,
+    BlobToUrlPipe
   ],
   imports: [
     CommonModule,
-    PhotoGalleryRoutingModule
-  ]
+    PhotoGalleryRoutingModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule
+  ],
+  providers: [BlobToUrlPipe]
 })
 export class PhotoGalleryModule { }

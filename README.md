@@ -7,11 +7,11 @@
     - [UI Mocks](#ui-mocks)
   - [User Story Breakdown](#user-story-breakdown)
     - [Story Priority](#story-priority)
-      - [(DONE) UI: Create Project (User Portal)](#done-ui-create-project-user-portal)
-      - [UI: Infinite list of scrollable random photos](#ui-infinite-list-of-scrollable-random-photos)
-      - [UI: App Header](#ui-app-header)
-      - [UI: Favorites screen](#ui-favorites-screen)
-      - [UI: Single photo page view](#ui-single-photo-page-view)
+    - [(DONE) UI: Create Project (User Portal)](#done-ui-create-project-user-portal)
+    - [UI: Infinite list of scrollable random photos](#ui-infinite-list-of-scrollable-random-photos)
+    - [UI: App Header](#ui-app-header)
+    - [UI: Favorites screen](#ui-favorites-screen)
+    - [UI: Single photo page view](#ui-single-photo-page-view)
   - [List of Test Cases (template)](#list-of-test-cases-template)
   - [App Specs](#app-specs)
 
@@ -70,7 +70,7 @@ to save photos to your “Favorites” library
 4. UI: Favorites screen
 5. UI: Single photo page view
 
-#### (DONE) UI: Create Project (User Portal)
+### (DONE) UI: Create Project (User Portal)
 
 Must have
 
@@ -91,7 +91,7 @@ Must have
   - 'HttpClientService.methods.getBlob.should be created'
   - 'HttpClientService.methods.getBlob.should have called get method'
 
-#### UI: Infinite list of scrollable random photos
+### UI: Infinite list of scrollable random photos
 
 Must have
 
@@ -131,8 +131,14 @@ Must have
     - 'SessionStorageService.removeItem.should have removed key value'
     - 'SessionStorageService.clear.should have removed all keys'
     - 'SessionStorageService.getKeys.should retrieve all keys'
+  - **GalleryServiceService**
+    - 'GalleryServiceService.should be created'
+    - 'GalleryServiceService.getRandomImage.should return a random image'
+    - 'GalleryServiceService.getFavoriteImage.should return favorite image from session storage if it exists'
+    - 'GalleryServiceService.setFavoriteImage.should set favorite image to session storage'
+    - 'GalleryServiceService.removeFavoriteImage.should remove session item'
 
-#### UI: App Header
+### UI: App Header
 
 Must have
 
@@ -141,7 +147,7 @@ Must have
 - Consists of 2 buttons and allows you to switch between your “Favorites” library and a random photo stream.
 - An active view must be highlighted
 
-#### UI: Favorites screen
+### UI: Favorites screen
 
 Must have
 
@@ -153,7 +159,7 @@ Must have
 - Favorites list should persist after a page refresh
   - session storage or local storage
 
-#### UI: Single photo page view
+### UI: Single photo page view
 
 Must have
 
@@ -180,3 +186,7 @@ Must have
 7. Think carefully about how to structure your code. Make separate reusable components, modules, etc Test your code
 8. Use async pipe and RxJS do not use subscriptions and promises
 9. Implement Change Detection on Push To improve Performance (stretch)
+10. Add content security policy (stretch)
+11. Make sure scrolling image log work both when we scroll using wheel and key arrow
+12. clear all console logs
+13. add error handling
