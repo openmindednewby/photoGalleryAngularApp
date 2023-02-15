@@ -10,7 +10,7 @@
     - [(DONE) UI: Create Project (User Portal)](#done-ui-create-project-user-portal)
     - [(Completed implementation ONLY pending unit tests) UI: Infinite list of scrollable random photos](#completed-implementation-only-pending-unit-tests-ui-infinite-list-of-scrollable-random-photos)
     - [(Completed implementation ONLY pending unit tests) UI: App Header](#completed-implementation-only-pending-unit-tests-ui-app-header)
-    - [UI: Favorites screen](#ui-favorites-screen)
+    - [(Completed implementation ONLY pending unit tests) UI: Favorites screen](#completed-implementation-only-pending-unit-tests-ui-favorites-screen)
     - [UI: Single photo page view](#ui-single-photo-page-view)
   - [List of Test Cases (template)](#list-of-test-cases-template)
   - [App Specs](#app-specs)
@@ -147,7 +147,7 @@ Must have
 - Consists of 2 buttons and allows you to switch between your “Favorites” library and a random photo stream.
 - An active view must be highlighted
 
-### UI: Favorites screen
+### (Completed implementation ONLY pending unit tests) UI: Favorites screen
 
 Must have
 
