@@ -11,10 +11,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./photo-widget.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PhotoWidgetComponent implements OnInit  {
+export class PhotoWidgetComponent implements OnInit {
 
   @Input() mode: WidgetModeEnum = WidgetModeEnum.Undefined;
   @Input() public imageKey: string | undefined;
+  public image$: Observable<Image> | undefined;
   public isFavorite = false;
   public storedId: string | null = null;
 
@@ -26,34 +27,45 @@ export class PhotoWidgetComponent implements OnInit  {
   ) {
   }
 
-
   public ngOnInit(): void {
+    this.retrieveRouteData();
+    switch (this.mode) {
+      case WidgetModeEnum.Default:
+      case WidgetModeEnum.Undefined:
+        this.image$ = defer(() => this.galleryServiceService.getRandomImage());
+        break
+      case WidgetModeEnum.EnlargedView:
+        this.storedId = this.activatedRoute.snapshot.paramMap.get('id');
+        this.image$ = defer(() => this.galleryServiceService.getSpecificImage(this.storedId as string, 500, 700));
+        break
+      case WidgetModeEnum.Favorite:
+        if (!!this.imageKey) {
+          this.storedId = this.sessionStorageService.get(this.imageKey);
+        }
+        if (!!this.storedId) {
+          this.image$ = defer(() => this.galleryServiceService.getSpecificImage(this.storedId as string));
+        }
+        break
+      default:
+        this.image$ = defer(() => this.galleryServiceService.getRandomImage());
+        break
+    }
+  }
+
+  public retrieveRouteData() {
     const snapshotData = this.activatedRoute.snapshot.data['mode'];
-    if(!!snapshotData){
+    if (!!snapshotData) {
       this.mode = snapshotData;
       this.isFavorite = true;
-    }
-    if (this.mode === WidgetModeEnum.EnlargedView) {
-      this.storedId = this.activatedRoute.snapshot.paramMap.get('id');
-      this.image$ = defer(() => this.galleryServiceService.getSpecificImage(this.storedId as string, 500, 700));
-    }
-    if (this.mode === WidgetModeEnum.Favorite) {
-      if (!!this.imageKey) {
-        this.storedId = this.sessionStorageService.get(this.imageKey);
-      }
-      if (!!this.storedId) {
-        this.image$ = defer(() => this.galleryServiceService.getSpecificImage(this.storedId as string));
-      }
     }
   }
 
   public openImage(id: string | void) {
     if (!!id) {
-      this.router.navigate(['/photos', id],{ state: { mode: WidgetModeEnum.EnlargedView } });
+      this.router.navigate(['/photos', id], { state: { mode: WidgetModeEnum.EnlargedView } });
     }
   }
 
-  public image$: Observable<Image> | undefined = this.imageRequestFactory();
 
   public addFavorite(value: string | void) {
     if (!value) {
@@ -68,7 +80,6 @@ export class PhotoWidgetComponent implements OnInit  {
       this.sessionStorageService.removeItem(value);
     }
   }
-
 
   public clickAction(value: string | void) {
     switch (this.mode) {
@@ -85,19 +96,5 @@ export class PhotoWidgetComponent implements OnInit  {
         break
     }
   }
-
-  private imageRequestFactory() {
-    switch (this.mode) {
-      case WidgetModeEnum.Default:
-      case WidgetModeEnum.Undefined:
-        return this.galleryServiceService.getRandomImage();
-      case WidgetModeEnum.EnlargedView:
-      case WidgetModeEnum.Favorite:
-        return;
-      default:
-        return this.galleryServiceService.getRandomImage();
-    }
-  }
-
 
 }
