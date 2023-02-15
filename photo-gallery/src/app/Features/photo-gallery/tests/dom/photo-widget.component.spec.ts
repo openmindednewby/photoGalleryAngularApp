@@ -8,14 +8,14 @@ import { BlobToUrlPipe } from 'src/app/Features/photo-gallery/pipes/blob-to-url.
 
 import { PhotoWidgetComponent } from '../../components/photo-widget/photo-widget.component';
 import { GalleryServiceService } from '../../gallery-service.service';
-import { mockedBlob } from '../test-data';
+import { mockedImage } from '../test-data';
 
 describe('PhotoWidgetComponent DOM test', () => {
   let component: PhotoWidgetComponent;
   let fixture: ComponentFixture<PhotoWidgetComponent>;
   let mockGalleryServiceService: jasmine.SpyObj<GalleryServiceService>;
   mockGalleryServiceService = jasmine.createSpyObj('GalleryServiceService', ['getRandomImage'])
-  mockGalleryServiceService.getRandomImage.and.returnValue(scheduled([mockedBlob], asyncScheduler))
+  mockGalleryServiceService.getRandomImage.and.returnValue(scheduled([mockedImage], asyncScheduler))
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

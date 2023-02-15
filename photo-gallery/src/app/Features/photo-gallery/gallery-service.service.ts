@@ -1,7 +1,6 @@
-import { map, Observable, of, tap } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClientService } from 'src/app/http-client.service';
-import { SessionStorageService } from 'src/app/session-storage.service';
 import { Image } from './models';
 
 @Injectable({
@@ -13,9 +12,7 @@ export class GalleryServiceService {
   private readonly randomWidgetImageUrl = this.imageUrl + '200/300';
 
   constructor(
-    private readonly httpClientService: HttpClientService,
-    private readonly sessionStorageService: SessionStorageService<Blob>,
-
+    private readonly httpClientService: HttpClientService
   ) { }
 
   public getRandomImage(): Observable<Image> {
@@ -44,14 +41,6 @@ export class GalleryServiceService {
       }
       return result;
     }))
-  }
-
-  public setFavoriteImage(key: string, value: any) {
-    this.sessionStorageService.set(key, value);
-  }
-
-  public removeFavoriteImage(key: string): void {
-    this.sessionStorageService.removeItem(key);
   }
 
 }
