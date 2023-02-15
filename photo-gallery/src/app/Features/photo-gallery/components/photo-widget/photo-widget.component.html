@@ -2,8 +2,8 @@
     <mat-card class="card ">
         <img [src]="img?.value" alt="Photo ">
         <mat-card-actions>
-            <button *ngIf="isFavorite" (click)="addFavorite(img) " mat-button color="warn"><mat-icon>favorite</mat-icon>Remove</button>
-            <button *ngIf="!isFavorite" (click)="addFavorite(img)" mat-button class="primary "><mat-icon>add</mat-icon>Add to Favorites</button>
+            <button *ngIf="isFavorite" (click)="addFavorite(img?.id) " mat-button color="warn"><mat-icon>favorite</mat-icon>Remove</button>
+            <button *ngIf="!isFavorite" (click)="addFavorite(img?.id)" mat-button class="primary "><mat-icon>add</mat-icon>Add to Favorites</button>
         </mat-card-actions>
     </mat-card>
 </ng-container>

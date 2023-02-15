@@ -1,1 +1,8 @@
-<p>gallery-favorites-list-view works!</p>
+<div class="flex-container">
+    <ng-container *ngFor="let key of imageKeys; trackBy: itemTracking ">
+        <app-favorite-photo-widget [imageKey]="key"></app-favorite-photo-widget>
+    </ng-container>
+    <div class="no-items" *ngIf="imageKeys.length < 1">
+        No items to display
+    </div>
+</div>

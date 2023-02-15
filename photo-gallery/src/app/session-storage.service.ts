@@ -7,16 +7,17 @@ export class SessionStorageService<T> {
 
   constructor() { }
 
-  public set(key: string, value: any): void {
+  public set(key: string, value: string): void {
     if (!!value) {
-      sessionStorage.setItem(key, JSON.stringify(value));
+      sessionStorage.setItem(key, value);
     }
   }
 
-  public get(key: string): T | null {
+  public get(key: string): string | null {
     const resultString = sessionStorage.getItem(key);
     if (!!resultString) {
-      return JSON.parse(resultString);
+      return resultString;
+      //return JSON.parse(resultString);
     }
     return null;
   }

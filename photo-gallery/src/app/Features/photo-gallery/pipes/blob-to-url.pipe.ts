@@ -1,6 +1,7 @@
-import { SafeResourceUrlPair } from '../../../models/safe-resource-url-pair';
+import { SafeUrl } from '../models/safe-url';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Image } from 'src/app/Features/photo-gallery/models';
 
 @Pipe({
   name: 'blobToUrl'
@@ -10,13 +11,12 @@ export class BlobToUrlPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {
   }
 
-  transform(value: Blob | null): SafeResourceUrlPair | void {
-    if (!!value) {
-      const url = URL.createObjectURL(value);
-      const id = url.slice(url.lastIndexOf('/') + 1)
-      const img: SafeResourceUrlPair = {
-        key: id,
-        value: this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(value))
+  transform(value: Image | null): SafeUrl | void {
+    if (!!value?.blob) {
+      const urlString = URL.createObjectURL(value.blob);
+      const img: SafeUrl = {
+        id: value.id,
+        value: this.sanitizer.bypassSecurityTrustResourceUrl(urlString),
       }
 
       return img;
