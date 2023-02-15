@@ -1,9 +1,9 @@
 <ng-container *ngIf="image$ | async | blobToUrl as safeUrl; else imageLoader ">
     <mat-card class="card ">
-        <img [src]="safeUrl?.value" alt="Photo ">
+        <img (click)="addFavorite(safeUrl?.id)" [src]="safeUrl?.value" alt="Photo ">
         <mat-card-actions>
-            <button *ngIf="isFavorite" (click)="addFavorite(safeUrl?.id) " mat-button color="warn"><mat-icon>favorite</mat-icon>Remove</button>
-            <button *ngIf="!isFavorite" (click)="addFavorite(safeUrl?.id)" mat-button class="primary "><mat-icon>add</mat-icon>Add to Favorites</button>
+            <button *ngIf="isFavorite" (click)="addFavorite(safeUrl?.id) " mat-button color="warn"><mat-icon>favorite</mat-icon>Remove from favorites</button>
+            <button *ngIf="!isFavorite" (click)="addFavorite(safeUrl?.id)" mat-button class="primary "><mat-icon>add</mat-icon>Add to favorites</button>
         </mat-card-actions>
     </mat-card>
 </ng-container>

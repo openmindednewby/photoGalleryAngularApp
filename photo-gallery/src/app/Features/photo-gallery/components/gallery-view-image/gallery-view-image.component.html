@@ -1,1 +1,12 @@
-<p>photo-gallery-view-image works!</p>
+<ng-container *ngIf="image$ | async | blobToUrl as safeUrl; else imageLoader ">
+    <mat-card class="card card-hover-effect">
+        <img (click)="addFavorite(safeUrl?.id)" [src]="safeUrl?.value" alt="Photo ">
+    </mat-card>
+    <mat-card-actions>
+        <button *ngIf="isFavorite" (click)="addFavorite(safeUrl?.id)" mat-button color="warn"><mat-icon>favorite</mat-icon>Remove from favorites</button>
+        <button *ngIf="!isFavorite" (click)="addFavorite(safeUrl?.id)" mat-button class="primary "><mat-icon>add</mat-icon>Add to favorites</button>
+    </mat-card-actions>
+</ng-container>
+<ng-template #imageLoader>
+    <mat-spinner></mat-spinner>
+</ng-template>

@@ -10,8 +10,8 @@
     - [(DONE) UI: Create Project (User Portal)](#done-ui-create-project-user-portal)
     - [(Completed implementation ONLY pending unit tests) UI: Infinite list of scrollable random photos](#completed-implementation-only-pending-unit-tests-ui-infinite-list-of-scrollable-random-photos)
     - [(Completed implementation ONLY pending unit tests) UI: App Header](#completed-implementation-only-pending-unit-tests-ui-app-header)
-    - [UI: Favorites screen](#ui-favorites-screen)
-    - [UI: Single photo page view](#ui-single-photo-page-view)
+    - [(Completed implementation ONLY pending unit tests) UI: Favorites screen](#completed-implementation-only-pending-unit-tests-ui-favorites-screen)
+    - [Completed implementation ONLY pending unit tests) UI: Single photo page view](#completed-implementation-only-pending-unit-tests-ui-single-photo-page-view)
   - [List of Test Cases (template)](#list-of-test-cases-template)
   - [App Specs](#app-specs)
 
@@ -95,20 +95,21 @@ Must have
 
 Must have
 
-- on load, load photos
-- infinite scroll down
-  - When scrolling, new photos should be loaded. Loader icon should be displayed.
-- load photos from (https://picsum.photos/200/300)
+- **DONE** on load, load photos
+- **DONE** infinite scroll down
+  - **DONE** When scrolling, new photos should be loaded. Loader icon should be displayed.
+- **DONE** load photos from (https://picsum.photos/200/300)
 - **DONE** implement onPush strategy  (stretch)
 - **DONE** be located at '/' root
-  - Add lazy loading (stretch)
-- http requests are delayed by 250ms
-- Clicking a photo adds it to Favorites. 
-  - Favorites need to persist, over refresh! Hence we need to make use of the session storage. Hence we should store the request url not the actual blobs since the session storage is supposed only to store small pieces of information. Also add the heart badge there to indicate its a favorite
-- Use https://picsum.photos/200/300 to get random photos (or any other
+- **DONE** http requests are delayed
+- **DONE** Clicking on a photo adds it to Favorites. 
+  - **DONE** Favorites need to persist, over refresh! Hence we need to make use of the session storage. Hence we should store the request url not the actual blobs since the session storage is supposed only to store small pieces of information. 
+- **DONE** Also add an indication to show the click action
+  - Added onhover event
+- **DONE** Use https://picsum.photos/200/300 to get random photos (or any other
   resource).
-- photo widget needs to be the same in favorite page and in random list
-- Emulate real-world API, when getting photos. Loading new photos
+-  (stretch) photo widget needs to be the same in favorite page and in random list
+- **DONE** Emulate real-world API, when getting photos. Loading new photos
   should have a random delay of 200-300ms
 - **DONE** unit tests:
   - **PhotoGalleryComponent**
@@ -143,31 +144,32 @@ Must have
 Must have
 
 - unit tests (to be defined)
-- on change show loader
-- Consists of 2 buttons and allows you to switch between your “Favorites” library and a random photo stream.
-- An active view must be highlighted
+- **DONE** on change show loader
+- **DONE** Consists of 2 buttons and allows you to switch between your “Favorites” library and a random photo stream.
+- **DONE** An active view must be highlighted
 
-### UI: Favorites screen
+### (Completed implementation ONLY pending unit tests) UI: Favorites screen
 
 Must have
 
 - unit tests (to be defined)
 - **DONE** Located at /favorites path.
-- Contains a list of favorite photos (no need for infinite scrolling here, just
+- **DONE** Contains a list of favorite photos (no need for infinite scrolling here, just
   list of all photos).
-- Clicking on a photo opens a single photo page.
-- Favorites list should persist after a page refresh
+- **DONE** Clicking on a photo opens a single photo page.
+- **DONE** Favorites list should persist after a page refresh
   - session storage or local storage
+    - session storage was descided
 
-### UI: Single photo page view
+### Completed implementation ONLY pending unit tests) UI: Single photo page view
 
 Must have
 
 - unit tests (to be defined)
-- Located at /photos/:id path.
-- Shows just a single full-screen photo, instead of a grid.
-- Should contain the “Remove from favorites” button.
-- The header remains the same on this page.
+- **DONE** Located at /photos/:id path.
+- **DONE** Shows just a single full-screen photo, instead of a grid.
+- **DONE** Should contain the “Remove from favorites” button.
+- **DONE** The header remains the same on this page.
 
 ## List of Test Cases (template)
 
