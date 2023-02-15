@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { defer, Observable } from 'rxjs';
 import { SessionStorageService } from 'src/app/session-storage.service';
 import { GalleryServiceService } from '../../gallery-service.service';
@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./photo-widget.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PhotoWidgetComponent implements OnChanges {
+export class PhotoWidgetComponent implements OnInit  {
 
   @Input() mode: WidgetModeEnum = WidgetModeEnum.Undefined;
   @Input() public imageKey: string | undefined;
@@ -37,9 +37,6 @@ export class PhotoWidgetComponent implements OnChanges {
       this.storedId = this.activatedRoute.snapshot.paramMap.get('id');
       this.image$ = defer(() => this.galleryServiceService.getSpecificImage(this.storedId as string, 500, 700));
     }
-  }
-
-  public ngOnChanges(): void {
     if (this.mode === WidgetModeEnum.Favorite) {
       if (!!this.imageKey) {
         this.storedId = this.sessionStorageService.get(this.imageKey);
@@ -47,11 +44,6 @@ export class PhotoWidgetComponent implements OnChanges {
       if (!!this.storedId) {
         this.image$ = defer(() => this.galleryServiceService.getSpecificImage(this.storedId as string));
       }
-    }
-
-    if (this.mode === WidgetModeEnum.EnlargedView) {
-      this.storedId = this.activatedRoute.snapshot.paramMap.get('id');
-      this.image$ = defer(() => this.galleryServiceService.getSpecificImage(this.storedId as string, 500, 700));
     }
   }
 
