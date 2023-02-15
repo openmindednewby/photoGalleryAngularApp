@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, On
 export class GalleryListViewComponent implements OnInit {
   public loadedItems: string[] = [];
   private imageLoadingThreshold = 70;
-  private imageLoadBatch = 3;
+  public imageLoadBatch = 3;
   private minimumNumberOfImages = 10;
 
   constructor(private ref: ChangeDetectorRef) { }
@@ -31,7 +31,7 @@ export class GalleryListViewComponent implements OnInit {
     }
   }
 
-  private verticalScrollPosition() {
+  public verticalScrollPosition() {
     const scrollHeight = document.documentElement.scrollHeight; //height of entire document - moved in documentation
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop; //current scroll position
     const windowHeight = window.innerHeight; // visible inner window height

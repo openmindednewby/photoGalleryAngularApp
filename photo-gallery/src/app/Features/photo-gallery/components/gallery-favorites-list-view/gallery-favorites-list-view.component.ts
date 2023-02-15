@@ -9,12 +9,9 @@ import { SessionStorageService } from 'src/app/session-storage.service';
 })
 export class GalleryFavoritesListViewComponent {
 
-
-
-  constructor(private sessionStorageService: SessionStorageService<string>) { }
-
   public imageKeys: string[] = this.sessionStorageService.getKeys();
 
+  constructor(private sessionStorageService: SessionStorageService<string>) { }
 
   public itemTracking(_index: number, value: any) {
     return value;

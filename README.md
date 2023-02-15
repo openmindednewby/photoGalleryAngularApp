@@ -182,7 +182,7 @@ Must have
 4. **DONE** Implement the infinitive scroll on your own. Do not use libraries.
 5. **DONE** Don’t use any backend server for retaining state
 6. **In progress** Add unit tests
-7. **In progress**  Think carefully about how to structure your code. Make separate reusable components, modules, etc Test your code
+7. **DONE**  Think carefully about how to structure your code. Make separate reusable components, modules, etc Test your code
    1. refactor favorite widget with photo widget and merge them into a single component
 8. **DONE**  Use async pipe and RxJS do not use subscriptions and promises
 9.  **DONE**  Implement Change Detection on Push To improve Performance (stretch)
@@ -191,4 +191,4 @@ Must have
 12. **DONE** clear all console logs
 13. add error handling. (on all http requests)
 14. **DONE** make headers not re rendered between pages
-15. Update Not found page, make it usable,
+15. **DONE** Update Not found page, make it usable,
