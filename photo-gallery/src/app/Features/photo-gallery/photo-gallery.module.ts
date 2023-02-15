@@ -14,6 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { GalleryViewImageComponent } from './components/gallery-view-image/gallery-view-image.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { FavoritePhotoWidgetComponent } from './components/favorite-photo-widget/favorite-photo-widget.component';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     GalleryListViewComponent,
     GalleryFavoritesListViewComponent,
     BlobToUrlPipe,
-    GalleryViewImageComponent
+    GalleryViewImageComponent,
+    FavoritePhotoWidgetComponent,
+    SafeUrlPipe
   ],
   imports: [
     CommonModule,

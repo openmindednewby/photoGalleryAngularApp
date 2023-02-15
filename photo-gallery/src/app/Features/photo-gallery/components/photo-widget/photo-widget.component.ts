@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SafeResourceUrlPair } from 'src/app/models/safe-resource-url-pair';
 import { SessionStorageService } from 'src/app/session-storage.service';
 import { GalleryServiceService } from '../../gallery-service.service';
+import { Image } from 'src/app/Features/photo-gallery/models';
 
 @Component({
   selector: 'app-photo-widget',
@@ -13,12 +13,12 @@ import { GalleryServiceService } from '../../gallery-service.service';
 export class PhotoWidgetComponent {
   public isFavorite = false;
 
-  constructor(private galleryServiceService: GalleryServiceService, private sessionStorageService: SessionStorageService<SafeResourceUrlPair>) {
+  constructor(private galleryServiceService: GalleryServiceService, private sessionStorageService: SessionStorageService<string>) {
   }
 
-  public image$: Observable<Blob> | undefined = this.galleryServiceService.getRandomImage();
+  public image$: Observable<Image> | undefined = this.galleryServiceService.getRandomImage();
 
-  public addFavorite(value: SafeResourceUrlPair | void) {
+  public addFavorite(value: string | void) {
     if (!value) {
       return;
     }
@@ -26,9 +26,9 @@ export class PhotoWidgetComponent {
     this.isFavorite = !this.isFavorite;
 
     if (this.isFavorite) {
-      this.sessionStorageService.set(value.key, value.value);
+      this.sessionStorageService.set(value, value);
     } else {
-      this.sessionStorageService.removeItem(value.key);
+      this.sessionStorageService.removeItem(value);
     }
   }
 }

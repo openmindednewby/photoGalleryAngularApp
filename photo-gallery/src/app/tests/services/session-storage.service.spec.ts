@@ -1,11 +1,11 @@
 import { Subscription } from 'rxjs';
-import { SafeResourceUrlPair } from 'src/app/models';
+import { SafeUrl} from 'src/app/Features/photo-gallery/models';
 
 import { SessionStorageService } from '../../session-storage.service';
-import { mockSafeResourceUrlPair } from '../test-data';
+import { mockSafeUrl } from '../test-data';
 
 describe('SessionStorageService', () => {
-  let service: SessionStorageService<SafeResourceUrlPair>;
+  let service: SessionStorageService<string>;
   let subscription: Subscription;
 
   beforeEach(() => {
@@ -26,11 +26,11 @@ describe('SessionStorageService', () => {
   describe('set', () => {
     it('should set a value', () => {
       //Arrange
-      const expectedData = mockSafeResourceUrlPair.value;
+      const expectedData = mockSafeUrl.value;
 
       //Act
-      service.set(mockSafeResourceUrlPair.key, mockSafeResourceUrlPair.value);
-      const actualData = JSON.parse(sessionStorage.getItem(mockSafeResourceUrlPair.key) as string);
+      service.set(mockSafeUrl.id, mockSafeUrl.id);
+      const actualData = JSON.parse(sessionStorage.getItem(mockSafeUrl.id) as string);
 
       //Assert
       expect(actualData).toBe(expectedData);
@@ -42,7 +42,7 @@ describe('SessionStorageService', () => {
         const expectedData = null;
 
         //Act
-        const actualData = service.get(mockSafeResourceUrlPair.key);
+        const actualData = service.get(mockSafeUrl.id);
 
         //Assert
         expect(actualData).toBe(expectedData);
@@ -50,11 +50,11 @@ describe('SessionStorageService', () => {
 
       it('should have retrieved set value', () => {
         //Arrange
-        const expectedData = mockSafeResourceUrlPair;
+        const expectedData = mockSafeUrl.id;
 
         //Act
-        service.set(mockSafeResourceUrlPair.key, mockSafeResourceUrlPair);
-        const actualData = service.get(mockSafeResourceUrlPair.key);
+        service.set(mockSafeUrl.id, mockSafeUrl);
+        const actualData = service.get(mockSafeUrl.id);
 
         //Assert
         expect(actualData).toEqual(expectedData);
@@ -67,9 +67,9 @@ describe('SessionStorageService', () => {
         const expectedData = null;
 
         //Act
-        service.set(mockSafeResourceUrlPair.key, mockSafeResourceUrlPair.value);
-        service.removeItem(mockSafeResourceUrlPair.key);
-        const actualData = sessionStorage.getItem(mockSafeResourceUrlPair.key);
+        service.set(mockSafeUrl.id, mockSafeUrl.value);
+        service.removeItem(mockSafeUrl.id);
+        const actualData = sessionStorage.getItem(mockSafeUrl.id);
 
         //Assert
         expect(actualData).toBe(expectedData);
@@ -82,7 +82,7 @@ describe('SessionStorageService', () => {
         const expectedData: [] = [];
 
         //Act
-        service.set(mockSafeResourceUrlPair.key, mockSafeResourceUrlPair.value);
+        service.set(mockSafeUrl.id, mockSafeUrl.value);
         service.clear();
         const actualData = Object.keys(sessionStorage);
 
@@ -97,7 +97,7 @@ describe('SessionStorageService', () => {
         const expectedDataLength = 1;
 
         //Act
-        service.set(mockSafeResourceUrlPair.key, mockSafeResourceUrlPair.value);
+        service.set(mockSafeUrl.id, mockSafeUrl.value);
         const actualData = Object.keys(sessionStorage).length;
 
         //Assert

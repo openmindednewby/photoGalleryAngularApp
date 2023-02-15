@@ -9,7 +9,7 @@
     - [Story Priority](#story-priority)
     - [(DONE) UI: Create Project (User Portal)](#done-ui-create-project-user-portal)
     - [(Completed implementation ONLY pending unit tests) UI: Infinite list of scrollable random photos](#completed-implementation-only-pending-unit-tests-ui-infinite-list-of-scrollable-random-photos)
-    - [UI: App Header](#ui-app-header)
+    - [(Completed implementation ONLY pending unit tests) UI: App Header](#completed-implementation-only-pending-unit-tests-ui-app-header)
     - [UI: Favorites screen](#ui-favorites-screen)
     - [UI: Single photo page view](#ui-single-photo-page-view)
   - [List of Test Cases (template)](#list-of-test-cases-template)
@@ -138,7 +138,7 @@ Must have
     - 'GalleryServiceService.setFavoriteImage.should set favorite image to session storage'
     - 'GalleryServiceService.removeFavoriteImage.should remove session item'
 
-### UI: App Header
+### (Completed implementation ONLY pending unit tests) UI: App Header
 
 Must have
 
@@ -152,7 +152,7 @@ Must have
 Must have
 
 - unit tests (to be defined)
-- Located at /favorites path.
+- **DONE** Located at /favorites path.
 - Contains a list of favorite photos (no need for infinite scrolling here, just
   list of all photos).
 - Clicking on a photo opens a single photo page.
@@ -191,3 +191,5 @@ Must have
 12. clear all console logs
 13. add error handling
 14. make headers not re rendered between pages
+15. add error handling on all http requests
+16. refactor favorite widget with photo widget and merge them into a single component
