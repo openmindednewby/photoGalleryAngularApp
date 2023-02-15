@@ -3,7 +3,7 @@ import { defer, Observable } from 'rxjs';
 import { SessionStorageService } from 'src/app/session-storage.service';
 import { GalleryServiceService } from '../../gallery-service.service';
 import { Image, WidgetModeEnum } from 'src/app/Features/photo-gallery/models';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-photo-widget',
@@ -21,10 +21,23 @@ export class PhotoWidgetComponent implements OnChanges {
   constructor(
     private galleryServiceService: GalleryServiceService,
     private sessionStorageService: SessionStorageService<string>,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
   ) {
   }
 
+
+  public ngOnInit(): void {
+    const snapshotData = this.activatedRoute.snapshot.data['mode'];
+    if(!!snapshotData){
+      this.mode = snapshotData;
+      this.isFavorite = true;
+    }
+    if (this.mode === WidgetModeEnum.EnlargedView) {
+      this.storedId = this.activatedRoute.snapshot.paramMap.get('id');
+      this.image$ = defer(() => this.galleryServiceService.getSpecificImage(this.storedId as string, 500, 700));
+    }
+  }
 
   public ngOnChanges(): void {
     if (this.mode === WidgetModeEnum.Favorite) {
@@ -35,11 +48,16 @@ export class PhotoWidgetComponent implements OnChanges {
         this.image$ = defer(() => this.galleryServiceService.getSpecificImage(this.storedId as string));
       }
     }
+
+    if (this.mode === WidgetModeEnum.EnlargedView) {
+      this.storedId = this.activatedRoute.snapshot.paramMap.get('id');
+      this.image$ = defer(() => this.galleryServiceService.getSpecificImage(this.storedId as string, 500, 700));
+    }
   }
 
   public openImage(id: string | void) {
     if (!!id) {
-      this.router.navigate(['/photos', id]);
+      this.router.navigate(['/photos', id],{ state: { mode: WidgetModeEnum.EnlargedView } });
     }
   }
 
@@ -60,31 +78,34 @@ export class PhotoWidgetComponent implements OnChanges {
   }
 
 
-public clickAction(value: string | void){
-  switch (this.mode) {
-    case WidgetModeEnum.Default:
-    case WidgetModeEnum.Undefined:
-      this.addFavorite(value);
-      break
-    case WidgetModeEnum.Favorite:
-      this.openImage(value);
-      break
-    default:
-      this.addFavorite(value);
-      break
+  public clickAction(value: string | void) {
+    switch (this.mode) {
+      case WidgetModeEnum.Default:
+      case WidgetModeEnum.Undefined:
+      case WidgetModeEnum.EnlargedView:
+        this.addFavorite(value);
+        break
+      case WidgetModeEnum.Favorite:
+        this.openImage(value);
+        break
+      default:
+        this.addFavorite(value);
+        break
+    }
   }
-}
 
   private imageRequestFactory() {
     switch (this.mode) {
       case WidgetModeEnum.Default:
       case WidgetModeEnum.Undefined:
         return this.galleryServiceService.getRandomImage();
+      case WidgetModeEnum.EnlargedView:
       case WidgetModeEnum.Favorite:
         return;
       default:
         return this.galleryServiceService.getRandomImage();
     }
-
   }
+
+
 }

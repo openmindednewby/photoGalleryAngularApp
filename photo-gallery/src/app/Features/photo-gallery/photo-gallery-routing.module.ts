@@ -1,9 +1,10 @@
 import { GalleryFavoritesListViewComponent } from './components/gallery-favorites-list-view/gallery-favorites-list-view.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GalleryViewImageComponent } from './components/gallery-view-image/gallery-view-image.component';
 import { GalleryListViewComponent } from './components/gallery-list-view/gallery-list-view.component';
 import { PhotoGalleryComponent } from './photo-gallery.component';
+import { PhotoWidgetComponent } from './components/photo-widget/photo-widget.component';
+import { WidgetModeEnum } from './models';
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
       },
       {
         path: 'photos/:id',
-        component: GalleryViewImageComponent
+        component: PhotoWidgetComponent,
+        data: { mode: WidgetModeEnum.EnlargedView }
       }
     ]
   }

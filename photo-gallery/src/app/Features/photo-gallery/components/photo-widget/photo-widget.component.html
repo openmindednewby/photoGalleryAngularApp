@@ -2,12 +2,12 @@
     <mat-card class="card card-hover-effect">
         <img (click)="clickAction(safeUrl?.id)" [src]="safeUrl?.value" alt="Photo ">
         <mat-card-actions>
-            <ng-container *ngIf="mode === 0  || mode === 1">
+            <ng-container *ngIf="mode === 0  || mode === 1 || mode === 3">
                 <button *ngIf="isFavorite" (click)="clickAction(safeUrl?.id) " mat-button color="warn"><mat-icon>favorite</mat-icon>Remove from favorites</button>
                 <button *ngIf="!isFavorite" (click)="clickAction(safeUrl?.id)" mat-button class="primary"><mat-icon>add</mat-icon>Add to favorites</button>
             </ng-container>
 
-            <ng-container *ngIf="mode === 0  || mode === 2">
+            <ng-container *ngIf="mode === 2">
                 <button (click)="clickAction(safeUrl?.id)" mat-button color="primary"><mat-icon>preview</mat-icon>View</button>
             </ng-container>
         </mat-card-actions>

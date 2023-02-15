@@ -12,7 +12,6 @@ import { BlobToUrlPipe } from './pipes/blob-to-url.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { GalleryViewImageComponent } from './components/gallery-view-image/gallery-view-image.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 
@@ -24,7 +23,6 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
     GalleryListViewComponent,
     GalleryFavoritesListViewComponent,
     BlobToUrlPipe,
-    GalleryViewImageComponent,
     SafeUrlPipe
   ],
   imports: [
