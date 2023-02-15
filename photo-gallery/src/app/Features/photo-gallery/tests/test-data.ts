@@ -2,13 +2,10 @@ import { HttpResponse } from '@angular/common/http';
 import { of } from "rxjs";
 import { Image } from '../models';
 
-export const mockedBlob = new Blob([]);
+export const mockedBlob = new Blob([`data`]);
 export const mockedHttpResponseBlob = new HttpResponse<Blob>();
 export const mockedObservableHttpResponseBlob = of(mockedHttpResponseBlob);
 export const mockedObservableBlob = of(mockedBlob);
-
-
-
 
 export const mockedImage: Image = {
   id: '1',
