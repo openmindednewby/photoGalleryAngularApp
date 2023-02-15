@@ -11,6 +11,7 @@ export class GalleryListViewComponent implements OnInit {
   public loadedItems: string[] = [];
   private imageLoadingThreshold = 70;
   private imageLoadBatch = 3;
+  private minimumNumberOfImages = 10;
 
   constructor(private ref: ChangeDetectorRef) { }
 
@@ -20,9 +21,9 @@ export class GalleryListViewComponent implements OnInit {
   }
 
   private loadImages() {
-    const currentScrollVerticalPosition = this.verticalScrollPosition();
-    if (currentScrollVerticalPosition < this.imageLoadingThreshold) {
-      while (currentScrollVerticalPosition === this.verticalScrollPosition()) {
+    let currentScrollVerticalPosition = this.verticalScrollPosition();
+    if ((currentScrollVerticalPosition < this.imageLoadingThreshold) || this.loadedItems.length < this.minimumNumberOfImages) {
+      while ((currentScrollVerticalPosition === this.verticalScrollPosition()) || this.loadedItems.length < this.minimumNumberOfImages) {
         this.addItems(this.imageLoadBatch);
         this.ref.detectChanges();
         delay(1000);
