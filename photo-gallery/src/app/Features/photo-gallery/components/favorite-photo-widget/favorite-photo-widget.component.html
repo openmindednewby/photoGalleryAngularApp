@@ -1,6 +1,6 @@
-<ng-container *ngIf="image$ | async | blobToUrl as url; else imageLoader ">
-    <mat-card class="card ">
-        <img [src]="url?.value" alt="Photo ">
+<ng-container *ngIf="image$ | async | blobToUrl as safeUrl; else imageLoader ">
+    <mat-card class="card card-hover-effect">
+        <img (click)="openImage(safeUrl?.id)" [src]="safeUrl?.value" alt="Photo ">
     </mat-card>
 </ng-container>
 <ng-template #imageLoader>

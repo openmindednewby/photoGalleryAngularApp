@@ -1,2 +1,2 @@
-export * from './safe-url';
+export * from './safe-resource-url-pair';
 export * from './image';

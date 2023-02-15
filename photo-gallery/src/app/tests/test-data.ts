@@ -1,4 +1,4 @@
-import {  SafeUrl } from '../Features/photo-gallery/models/safe-url';
+import { SafeUrl } from '../Features/photo-gallery/models/safe-resource-url-pair';
 
 export const mockSafeUrl: SafeUrl = {
   id: 'image-key-1',

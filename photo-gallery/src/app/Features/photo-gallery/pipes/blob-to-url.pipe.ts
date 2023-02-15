@@ -1,4 +1,4 @@
-import { SafeUrl } from '../models/safe-url';
+import { SafeUrl } from '../models/safe-resource-url-pair';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Image } from 'src/app/Features/photo-gallery/models';

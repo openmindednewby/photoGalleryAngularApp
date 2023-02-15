@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { defer, Observable, of } from 'rxjs';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
+import { defer, Observable } from 'rxjs';
 import { SessionStorageService } from 'src/app/session-storage.service';
 import { GalleryServiceService } from '../../gallery-service.service';
 
@@ -8,12 +8,12 @@ import { GalleryServiceService } from '../../gallery-service.service';
   selector: 'app-favorite-photo-widget',
   templateUrl: './favorite-photo-widget.component.html',
   styleUrls: ['./favorite-photo-widget.component.scss']
-  //,changeDetection: ChangeDetectionStrategy.OnPush
+  , changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FavoritePhotoWidgetComponent implements OnChanges {
 
   @Input() public imageKey: string | undefined;
-  constructor(private sessionStorageService: SessionStorageService<string>, private ref: ChangeDetectorRef, private galleryServiceService: GalleryServiceService,) { }
+  constructor(private sessionStorageService: SessionStorageService<string>, private galleryServiceService: GalleryServiceService, private router: Router) { }
   public image$: Observable<any> | undefined;
   public storedId: string | null = null;
 
@@ -25,19 +25,11 @@ export class FavoritePhotoWidgetComponent implements OnChanges {
     if (!!this.storedId) {
       this.image$ = defer(() => this.galleryServiceService.getSpecificImage(this.storedId as string));
     }
-    //this.ref.detectChanges();
   }
 
-
-  // private getImagePair() {
-  //   const urlPair = this.sessionStorageService.get(this.imageKey as string);
-  //   if (!!urlPair) {
-  //     this.imageUrl = this.galleryServiceService.getSpecificImage(urlPair);
-  //     return of(urlPair);
-  //   }
-  //   return;
-  // }
-
-
-
+  public openImage(id: string | undefined) {
+    if (!!id) {
+      this.router.navigate(['/photos', id]);
+    }
+  }
 }

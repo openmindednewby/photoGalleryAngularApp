@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, On
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GalleryListViewComponent implements OnInit {
-  public loadedItems: boolean[] = [];
+  public loadedItems: string[] = [];
   private imageLoadingThreshold = 70;
   private imageLoadBatch = 3;
 
@@ -45,7 +45,7 @@ export class GalleryListViewComponent implements OnInit {
   }
 
   public addItem() {
-    this.loadedItems.push(true);
+    this.loadedItems.push('');
   }
 
   public ngOnInit(): void {

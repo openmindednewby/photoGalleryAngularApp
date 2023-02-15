@@ -19,3 +19,9 @@ body {
 .flex-item {
     margin: 1rem;
 }
+
+.no-items {
+    justify-content: center;
+    display: flex;
+    flex: content;
+}

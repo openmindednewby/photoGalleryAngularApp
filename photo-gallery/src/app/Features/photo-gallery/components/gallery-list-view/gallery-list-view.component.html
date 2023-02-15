@@ -3,4 +3,7 @@
         <app-photo-widget class="flex-item">
         </app-photo-widget>
     </ng-container>
+    <div class="no-items" *ngIf="loadedItems.length < 1">
+        No items to display
+    </div>
 </div>
