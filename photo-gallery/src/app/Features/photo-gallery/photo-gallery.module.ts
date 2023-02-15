@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -32,7 +33,8 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    RouterModule
   ],
   providers: [BlobToUrlPipe]
 })

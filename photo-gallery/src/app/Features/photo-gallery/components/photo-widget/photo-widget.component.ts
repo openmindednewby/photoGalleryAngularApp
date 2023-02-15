@@ -53,9 +53,9 @@ export class PhotoWidgetComponent implements OnInit {
   }
 
   public retrieveRouteData() {
-    const snapshotData = this.activatedRoute.snapshot.data['mode'];
+    const snapshotData = this.activatedRoute?.snapshot?.data['mode'];
     if (!!snapshotData) {
-      this.mode = snapshotData;
+      this.mode = parseInt(snapshotData, 10);
       this.isFavorite = true;
     }
   }
@@ -82,7 +82,7 @@ export class PhotoWidgetComponent implements OnInit {
   }
 
   public clickAction(value: string | void) {
-    switch (this.mode) {
+    switch (this?.mode) {
       case WidgetModeEnum.Default:
       case WidgetModeEnum.Undefined:
       case WidgetModeEnum.EnlargedView:

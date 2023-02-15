@@ -15,7 +15,17 @@ export const mockedImage: Image = {
 export const activatedRouteStub = {
   snapshot: {
     paramMap: {
-      get: (key: string) => '123' // Return whatever value you want to mock here
+      get: (key: string) => '123'
+    },
+    data: {
+      mode: '1'
     }
   }
+};
+
+export const activatedRouteMock = {
+    paramMap: of({
+      id: '1',
+      get: (key: string) => ({id: '1'})
+    })
 };
