@@ -1,22 +1,19 @@
-import { asyncScheduler, map, scheduled, Subscription } from 'rxjs';
+import { asyncScheduler,  scheduled, Subscription } from 'rxjs';
 import { HttpClientService } from 'src/app/http-client.service';
-import { SessionStorageService } from 'src/app/session-storage.service';
 
 import { GalleryServiceService } from '../../gallery-service.service';
-import { mockedBlob, mockedObservableBlob } from '../test-data';
+import { mockedObservableBlob, mockedObservableHttpResponseBlob } from '../test-data';
 
 describe('GalleryServiceService', () => {
   let service: GalleryServiceService;
   let mockHttpClientService: jasmine.SpyObj<HttpClientService>;
-  let mockSessionStorageService: jasmine.SpyObj<SessionStorageService<Blob>>;
 
   let subscription: Subscription;
 
   beforeEach(() => {
-    mockHttpClientService = jasmine.createSpyObj('HttpClientService', ['getBlob'])
-    mockSessionStorageService = jasmine.createSpyObj('SessionStorageService', ['get', 'set', 'removeItem'])
+    mockHttpClientService = jasmine.createSpyObj('HttpClientService', ['getBlob', 'getBlobFull'])
 
-    service = new GalleryServiceService(mockHttpClientService, mockSessionStorageService);
+    service = new GalleryServiceService(mockHttpClientService);
     sessionStorage.clear();
   });
 
@@ -29,61 +26,32 @@ describe('GalleryServiceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
   describe('getRandomImage', () => {
     it('should return a random image', () => {
       //Arrange
-      const expectedData = mockedObservableBlob;
-      mockHttpClientService.getBlob.and.returnValue(scheduled(expectedData, asyncScheduler));
+      const expectedData = mockedObservableHttpResponseBlob;
+      mockHttpClientService.getBlobFull.and.returnValue(scheduled(expectedData, asyncScheduler));
 
       //Act
       service.getRandomImage();
 
       //Assert
+      expect(mockHttpClientService.getBlobFull).toHaveBeenCalled();
+    });
+  });
+  describe('getSpecificImage', () => {
+    it('should return a specific image', () => {
+      //Arrange
+      const expectedData = mockedObservableBlob;
+      mockHttpClientService.getBlob.and.returnValue(scheduled(expectedData, asyncScheduler));
+
+      //Act
+      service.getSpecificImage('1');
+
+      //Assert
       expect(mockHttpClientService.getBlob).toHaveBeenCalled();
     });
   });
-  describe('getFavoriteImage', () => {
-    it('should return favorite image from session storage if it exists', () => {
-      //Arrange
-      const input = 'key1';
-      const expectedData = mockedBlob;
-      mockSessionStorageService.get.and.returnValue(expectedData);
 
-      //Act
-      service.getFavoriteImage(input);
-
-      //Assert
-      expect(mockSessionStorageService.get).toHaveBeenCalledWith(input);
-    });
-  });
-  describe('setFavoriteImage', () => {
-    it('should set favorite image to session storage', () => {
-
-      //Arrange
-      const inputKey = 'key1';
-      const inputValue = mockedBlob;
-      mockSessionStorageService.set.and.returnValue();
-
-      //Act
-      service.setFavoriteImage(inputKey, inputValue);
-
-      //Assert
-      expect(mockSessionStorageService.set).toHaveBeenCalledWith(inputKey, inputValue);
-    });
-  });
-  describe('removeFavoriteImage', () => {
-    it('should remove session item', () => {
-
-      //Arrange
-      const inputKey = 'key1';
-      const inputValue = mockedBlob;
-      mockSessionStorageService.set.and.returnValue();
-
-      //Act
-      service.setFavoriteImage(inputKey, inputValue);
-
-      //Assert
-      expect(mockSessionStorageService.set).toHaveBeenCalledWith(inputKey, inputValue);
-    });
-  });
 });

@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -12,9 +13,7 @@ import { BlobToUrlPipe } from './pipes/blob-to-url.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { GalleryViewImageComponent } from './components/gallery-view-image/gallery-view-image.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { FavoritePhotoWidgetComponent } from './components/favorite-photo-widget/favorite-photo-widget.component';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 
 @NgModule({
@@ -25,8 +24,6 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
     GalleryListViewComponent,
     GalleryFavoritesListViewComponent,
     BlobToUrlPipe,
-    GalleryViewImageComponent,
-    FavoritePhotoWidgetComponent,
     SafeUrlPipe
   ],
   imports: [
@@ -36,7 +33,8 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    RouterModule
   ],
   providers: [BlobToUrlPipe]
 })

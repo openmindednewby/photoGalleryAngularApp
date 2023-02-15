@@ -1,6 +1,6 @@
 <div class="flex-container">
     <ng-container *ngFor="let item of loadedItems; trackBy: itemTracking ">
-        <app-photo-widget class="flex-item  card-hover-effect">
+        <app-photo-widget [mode]="1" class="flex-item">
         </app-photo-widget>
     </ng-container>
     <div class="no-items" *ngIf="loadedItems.length < 1">

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SessionStorageService } from 'src/app/session-storage.service';
 
 @Component({
@@ -7,17 +7,11 @@ import { SessionStorageService } from 'src/app/session-storage.service';
   styleUrls: ['./gallery-favorites-list-view.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GalleryFavoritesListViewComponent implements OnInit {
-
-
-
-  constructor(private sessionStorageService: SessionStorageService<string>) { }
+export class GalleryFavoritesListViewComponent {
 
   public imageKeys: string[] = this.sessionStorageService.getKeys();
 
-
-  ngOnInit(): void {
-  }
+  constructor(private sessionStorageService: SessionStorageService<string>) { }
 
   public itemTracking(_index: number, value: any) {
     return value;

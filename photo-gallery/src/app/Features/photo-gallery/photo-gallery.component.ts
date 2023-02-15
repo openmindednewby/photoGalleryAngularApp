@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-photo-gallery',
@@ -6,11 +6,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./photo-gallery.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PhotoGalleryComponent implements OnInit {
+export class PhotoGalleryComponent  {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
 
 }

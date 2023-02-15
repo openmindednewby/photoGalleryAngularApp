@@ -12,7 +12,7 @@
     - [(Completed implementation ONLY pending unit tests) UI: App Header](#completed-implementation-only-pending-unit-tests-ui-app-header)
     - [(Completed implementation ONLY pending unit tests) UI: Favorites screen](#completed-implementation-only-pending-unit-tests-ui-favorites-screen)
     - [Completed implementation ONLY pending unit tests) UI: Single photo page view](#completed-implementation-only-pending-unit-tests-ui-single-photo-page-view)
-  - [List of Test Cases (template)](#list-of-test-cases-template)
+    - [UI: Refactor Existing Components](#ui-refactor-existing-components)
   - [App Specs](#app-specs)
 
 # Photo Gallery Angular App
@@ -171,27 +171,24 @@ Must have
 - **DONE** Should contain the “Remove from favorites” button.
 - **DONE** The header remains the same on this page.
 
-## List of Test Cases (template)
+### UI: Refactor Existing Components
 
-| Case No | Description | Expected Result |
-| ------- | ----------- | --------------- |
-|         |             |                 |
 
 ## App Specs
 
-1. Use Angular Router module
-2. Use the latest Angular, and SCSS instead of CSS
-3. Use Angular Material components
-4. Implement the infinitive scroll on your own. Do not use libraries.
-5. Don’t use any backend server for retaining state
-6. Add unit tests
-7. Think carefully about how to structure your code. Make separate reusable components, modules, etc Test your code
-8. Use async pipe and RxJS do not use subscriptions and promises
-9. Implement Change Detection on Push To improve Performance (stretch)
+1. **DONE** Use Angular Router module
+2. **DONE** Use the latest Angular, and SCSS instead of CSS
+3. **DONE** Use Angular Material components
+4. **DONE** Implement the infinitive scroll on your own. Do not use libraries.
+5. **DONE** Don’t use any backend server for retaining state
+6. **In progress** Add unit tests
+7. **DONE**  Think carefully about how to structure your code. Make separate reusable components, modules, etc Test your code
+   1. refactor favorite widget with photo widget and merge them into a single component
+8. **DONE**  Use async pipe and RxJS do not use subscriptions and promises
+9.  **DONE**  Implement Change Detection on Push To improve Performance (stretch)
 10. Add content security policy (stretch)
-11. Make sure scrolling image log work both when we scroll using wheel and key arrow
-12. clear all console logs
-13. add error handling
-14. make headers not re rendered between pages
-15. add error handling on all http requests
-16. refactor favorite widget with photo widget and merge them into a single component
+11. **DONE**  Make sure scrolling image log work both when we scroll using wheel and key arrow
+12. **DONE** clear all console logs
+13. add error handling. (on all http requests)
+14. **DONE** make headers not re rendered between pages
+15. **DONE** Update Not found page, make it usable,

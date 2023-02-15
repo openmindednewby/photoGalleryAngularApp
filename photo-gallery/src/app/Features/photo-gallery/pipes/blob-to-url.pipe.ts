@@ -11,7 +11,7 @@ export class BlobToUrlPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {
   }
 
-  transform(value: Image | null): SafeUrl | void {
+  public transform(value: Image | null): SafeUrl | void {
     if (!!value?.blob) {
       const urlString = URL.createObjectURL(value.blob);
       const img: SafeUrl = {
